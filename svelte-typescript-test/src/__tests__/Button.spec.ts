@@ -4,8 +4,11 @@ import { render } from "@testing-library/svelte";
 import Button from "../components/Button.svelte";
 
 test("should fire onclick event", async () => {
-  const { container } = render(Button);
-  const button = container.querySelector("button");
+  const { getByText } = render(Button);
+  const button = getByText("Add number");
+  const printSum = getByText("sum: 6");
   await fireEvent.click(button);
-  expect(container.textContent).toBe("Add number sum: 10");
+  expect(printSum.textContent).toBe("sum: 10");
+  await fireEvent.click(button);
+  expect(printSum.textContent).toBe("sum: 15");
 });
