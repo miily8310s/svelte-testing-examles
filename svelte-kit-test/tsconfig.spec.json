@@ -1,0 +1,9 @@
+// MEMO: tsconfig.jsonでのみ設定できるため不要
+// {
+// 	"extends": "./tsconfig.json",
+// 	"compilerOptions": {
+// 		"isolatedModules": false
+// 	},
+// 	"exclude": ["src/**"],
+// 	"include": ["src/**/*.spec.ts"]
+// }
