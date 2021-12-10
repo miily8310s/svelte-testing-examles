@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 
+// TODO: もう少しいい方法ないか考える
+import '@testing-library/jest-dom';
 import { render, RenderResult } from '@testing-library/svelte';
 import Index from './index.svelte';
 
@@ -22,7 +24,7 @@ describe('Index', () => {
 
 	describe('once the component has been rendered', () => {
 		test('should show the proper heading', () => {
-			expect(renderedComponent.getByText(/SvelteKit/)).toBeDefined();
+			expect(renderedComponent.getByText(/SvelteKit/)).toBeInTheDocument();
 			expect(renderedComponent.getByText('src/routes/index.svelte').textContent).toBe(
 				'src/routes/index.svelte'
 			);
