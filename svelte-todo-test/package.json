@@ -5,6 +5,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "test": "jest --coverage",
+    "test:watch": "rpm run test",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
