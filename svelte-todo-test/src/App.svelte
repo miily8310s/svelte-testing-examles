@@ -1,10 +1,18 @@
 <script lang="ts">
-	export let name: string;
+	import TodoList from "./components/TodoList.svelte";
+	let todos = [
+		{id: 1, text: "Read book", done: true},
+		{id: 2, text: "Study English Vocabulary", done: false},
+		{id: 3, text: "Create Svelte App", done: false}
+	]
+	$: unDoneTodosCount = todos.filter(todo => !!todo.done).length
+	$: status = `${todos.length}タスク中${unDoneTodosCount}タスク完了`
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>My Todos</h1>
+	<h2>{status}</h2>
+	<TodoList todos={todos}/>
 </main>
 
 <style>
@@ -18,7 +26,7 @@
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
-		font-size: 4em;
+		font-size: 1em;
 		font-weight: 100;
 	}
 
