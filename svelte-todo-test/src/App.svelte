@@ -1,6 +1,8 @@
 <script lang="ts">
   import AddTodo from "./components/AddTodo/AddTodo.svelte";
-	import TodoList from "./components/TodoList.svelte";
+	import TodoList from "./components/TodoList/TodoList.svelte";
+  import type { Todo } from "./types";
+	
 	let todos = [
 		{id: 1, text: "Read book", done: true},
 		{id: 2, text: "Study English Vocabulary", done: false},
@@ -13,13 +15,18 @@
 		let text = event.detail
 		todos = [...todos, {id: todos.length, text, done: false}]
 	}
+	const handleDone = (event: {detail: Todo}) => {
+		const todo = event.detail
+		const { id } = todo
+		todos = todos.map(t => t.id == id ? {...t, done: !t.done} : t)
+	}
 </script>
 
 <main>
 	<h1>My Todos</h1>
 	<AddTodo on:addTodo={addNewTodo}/>
 	<h2>{status}</h2>
-	<TodoList todos={todos}/>
+	<TodoList todos={todos} on:handleDone={handleDone}/>
 </main>
 
 <style>

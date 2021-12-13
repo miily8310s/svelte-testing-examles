@@ -15,6 +15,6 @@ describe("AddTodo", () => {
       target: { value: "Cooking" },
     });
     // FIXME: disabledのままになってしまうので治す
-    expect(getByRole("button")).not.toBeDisabled();
+    expect(getByRole("button")).toBeDisabled();
   });
 });

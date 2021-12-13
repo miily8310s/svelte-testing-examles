@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type {Todo} from "../types"
+  import type {Todo} from "../../types"
+  import TodoDetail from "../Todo/TodoDetail.svelte"
   export let todos: Todo[] = []
 </script>
 
@@ -7,7 +8,7 @@
   <ul>
     {#each todos as todo}
       <li>
-        <p>{todo.id}</p>
+        <TodoDetail on:handleDone {todo} />
       </li>
     {/each}
   </ul>
