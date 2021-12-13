@@ -6,6 +6,6 @@
 </script>
 
 <div>
-  <input type="checkbox" checked={todo.done} on:click={() => dispatch("handleDone", todo)}>
+  <input type="checkbox" checked={todo.done} aria-label="DoneCheck" on:click={() => dispatch("handleDone", todo)}>
   <span>{todo.text}</span>
 </div>
