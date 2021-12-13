@@ -1,0 +1,14 @@
+{
+  "transform": {
+    "^.+\\.svelte$": [
+      "svelte-jester",
+      {
+        "preprocess": true
+      }
+    ],
+    "^.+\\.ts$": "ts-jest"
+  },
+  "moduleFileExtensions": ["svelte", "js", "ts"],
+  "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+  "testEnvironment": "jsdom"
+}
